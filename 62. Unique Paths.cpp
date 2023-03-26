@@ -72,7 +72,7 @@ public:
      */
     //Approach-6 Tabulation(With Space Optimization) Tabulation  Time Complexity: O(M*N) , Space Complexity: O(N)
     //use single vector prev(for previous row and curr for current row) 
-    vector<int>prev(n,0) ;  // for no of column 
+   /* vector<int>prev(n,0) ;  // for no of column 
     for(int row=0;row<m;row++){
               vector<int>curr(n,0) ; 
               for(int col=0;col<n;col++){
@@ -89,6 +89,13 @@ public:
               }
               prev=curr;
         }
-    return prev[n-1] ; 
-    }
+    return prev[n-1] ; */
+    //Approach-7 - combination
+        long long int path=m+n-2 ,  ans=1;
+        for(int i=1;i<=n-1;++i){   
+           ans*=(path-n+1+i);
+           ans/=i;
+        }
+        return ans;
+     }
 };
