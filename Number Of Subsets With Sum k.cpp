@@ -67,8 +67,8 @@ int tabulation(vector<int> &num, int tar){
     //for ind=n-1 
    // if((num[n-1]==0 && tar==0) || (num[n-1]==0 && tar!=0 )) dp[n-1][0] = 2 ; //both pick & notpick cases
      if(num[n-1]==0) dp[n-1][0] = 2 ; //both pick & notpick cases
-    if(num[n-1]!=0 && tar!=0) dp[n-1][0] = 1 ; //notpick case
- 
+   // if(num[n-1]!=0 && tar!=0) dp[n-1][0] = 1 ; //notpick case
+      else  dp[n-1][0] = 1 ; 
     if(num[n-1]!=0 && num[n-1]<=tar) dp[n-1][num[n-1]] = 1 ; //pick case 
 
     //for ind=n-2 onwards 
@@ -124,8 +124,8 @@ int tabulationSpaceOptimization(vector<int> &num, int tar){
     //for ind=n-1 
    // if((num[n-1]==0 && tar==0) || (num[n-1]==0 && tar!=0 )) dp[n-1][0] = 2 ; //both pick & notpick cases
      if(num[n-1]==0) prev[0] = 2 ; //both pick & notpick cases
-    if(num[n-1]!=0 && tar!=0) prev[0] = 1 ; //notpick case
- 
+   // if(num[n-1]!=0 && tar!=0) prev[0] = 1 ; //notpick case
+      else prev[0] = 1 ; 
     if(num[n-1]!=0 && num[n-1]<=tar) prev[num[n-1]] = 1 ; //pick case 
 
     //for ind=n-2 onwards 
@@ -142,7 +142,7 @@ int tabulationSpaceOptimization(vector<int> &num, int tar){
     return prev[tar];
 }
 
-//Approach-4 Tabulation with Space Optimization  Time Complexity:  O(N*tar) , Space Complexity:O(tar)
+//Approach-3 Tabulation Time Complexity:  O(N*tar) , Space Complexity:O(N*tar)
  //(from n-1 call)
 int tabulationSpaceOptimization2(vector<int> &num, int tar){
     int n = num.size();
