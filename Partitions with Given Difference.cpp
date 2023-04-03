@@ -68,9 +68,10 @@ int tabulation(vector<int> &num, int tar){
 
     //for ind=n-1 
    // if((num[n-1]==0 && tar==0) || (num[n-1]==0 && tar!=0 )) dp[n-1][0] = 2 ; //both pick & notpick cases
-     if(num[n-1]==0) dp[n-1][0] = 2 ; //both pick & notpick cases
-    else dp[n-1][0] = 1 ; //notpick case
- 
+    if(num[n-1]==0) dp[n-1][0] = 2 ; //both pick & notpick cases
+   // else if( (num[n-1]!=0 && tar==0) || (num[n-1]!=0 && tar!=0 )  )dp[n-1][0] = 1 ; //notpick case
+ //or write this 
+ else dp[n-1][0] = 1 ; //notpick case
     if(num[n-1]!=0 && num[n-1]<=tar) dp[n-1][num[n-1]] = 1 ; //pick case 
 
     //for ind=n-2 onwards 
@@ -124,9 +125,11 @@ int tabulationSpaceOptimization(vector<int> &num, int tar){
     //Thus,bottom up -> from base case to up i.e n-1 to 0 
 
     //for ind=n-1 
-   // if((num[n-1]==0 && tar==0) || (num[n-1]==0 && tar!=0 )) dp[n-1][0] = 2 ; //both pick & notpick cases
-     if(num[n-1]==0) prev[0] = 2 ; //both pick & notpick cases
-       else prev[0]=1;
+   // if((num[n-1]==0 && tar==0) || (num[n-1]==0 && tar!=0 )) prev[0] = 2 ; //both pick & notpick cases
+      if(num[n-1]==0) prev[0] = 2 ; //both pick & notpick cases
+      else if( (num[n-1]!=0 && tar==0) || (num[n-1]!=0 && tar!=0 )  ) prev[0] = 1 ; //notpick case
+      //or write this
+      //else prev[0]=1;
     if(num[n-1]!=0 && num[n-1]<=tar) prev[num[n-1]] = 1 ; //pick case 
 
     //for ind=n-2 onwards 
@@ -181,9 +184,9 @@ int findWays(vector<int> &num, int tar)
    // return solve3(n-1,tar,num) ; //Approach-1 Recursion
    // return solve2(0,tar,num,dp); //Approach-2 Memoization
   //  return solve4(n-1,tar,num,dp); //Approach-2 Memoization
-   return tabulation(num,tar) ; //Approach-3 Tabulation
+  return tabulation(num,tar) ; //Approach-3 Tabulation
    //   return tabulation2(num,tar) ; 
-  // return tabulationSpaceOptimization(num,tar) ; //Approach-4 Tabulation With S.O
+   //return tabulationSpaceOptimization(num,tar) ; //Approach-4 Tabulation With S.O
   //  return tabulationSpaceOptimization2(num,tar) ; //Approach-4 Tabulation With S.O
 }
     int countPartitions(int n, int d, vector<int>& arr) {
