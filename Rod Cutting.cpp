@@ -43,6 +43,30 @@ int solve2(int ind,int N,int price[],vector<vector<int>>&dp){
     if(RodLength<=N) take = price[ind]+solve2(ind,N-RodLength,price,dp);
     return dp[ind][N]=max(take,notTake);
 }
+ /* call from (0,N)
+ int solve2(int ind,int N,int price[],vector<vector<int>>&dp,int n){
+      if(ind==n-1){     
+         //Taking rodLength of 1 N times gives total length as N
+        //total prices will be N*price[0] 
+        //take whichever rodLen left price 
+        return price[N-1];
+    }
+    if(dp[ind][N]!=-1) return dp[ind][N];
+
+    int notTake = solve2(ind+1,N,price,dp,n) ; 
+    int take = INT_MIN;
+    //at any index rod length is given as follow:-
+    int RodLength = ind+1;
+    
+     //stay at ind position only as we may use it again on reduced target :- INFINITE SUPPLY
+     //if available RodLength is smaller than or equal to Given rod length 
+     //than only take possible
+
+    if(RodLength<=N) take = price[ind]+solve2(ind,N-RodLength,price,dp,n);
+    return dp[ind][N]=max(take,notTake);
+}
+ 
+ */
 //Approach-3 Tabulation Time Complexity: O(N*W) , Space Complexity: O(N*W)
 int tabulation(int N, int price[]){
      vector<vector<int>>dp(N,vector<int>(N+1,0));
