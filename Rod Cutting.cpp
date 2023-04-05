@@ -51,6 +51,13 @@ int solve2(int ind,int N,int price[],vector<vector<int>>&dp){
         //take whichever rodLen left price 
         return price[N-1];
     }
+    /* //or use this base case
+    if(ind==n){     
+         //Taking rodLength of 1 N times gives total length as N
+        //total prices will be N*price[0] 
+     return N*price[0];
+    }
+    */
     if(dp[ind][N]!=-1) return dp[ind][N];
 
     int notTake = solve2(ind+1,N,price,dp,n) ; 
