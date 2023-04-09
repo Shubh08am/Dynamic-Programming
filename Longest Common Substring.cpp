@@ -107,7 +107,7 @@ class Solution{
                 }
    
          for(int ind1=1;ind1<=n;ind1++){
-            for(int ind2=m;ind2>=0;ind2--){ 
+            for(int ind2=m;ind2>0;ind2--){ 
                 //match
                 if(s1[ind1-1]==s2[ind2-1]){ 
                     //Update in prev only i.e overwrite curr[ind2] value in prev[ind2]
