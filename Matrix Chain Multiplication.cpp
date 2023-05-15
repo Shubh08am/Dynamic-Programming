@@ -64,7 +64,7 @@ public:
      //   return solve(1,n-1,arr) ;  //Approach-1 Recursion
      
        //   vector<vector<int>>dp(n,vector<int>(n,-1));
-       //   return solve2(1,n,arr,dp) ;  //Approach-2 Memoization
+       //   return solve2(1,n-1,arr,dp) ;  //Approach-2 Memoization
        
        return tabulation(n,arr); //Approach-3 Tabulation
 
